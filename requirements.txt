@@ -2,6 +2,6 @@ flask
 Gunicorn
 requests
 bs4 
-BeautifulSoup
+beautifulsoup4
 lxml 
 urllib.parse
