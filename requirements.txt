@@ -1,0 +1,7 @@
+flask 
+Gunicorn
+requests
+bs4 
+BeautifulSoup
+lxml 
+urllib.parse
