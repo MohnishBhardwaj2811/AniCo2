@@ -553,47 +553,118 @@ def index_html(data):
 def player_html(data):
 
     player_html = """
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' {data};">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://embtaku.pro;">
     <title>Video Player</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 20px 0;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>HTML Links</h1>
-    <a href="../get-user/Home">Home</a>
-    <a href="../get-user/Search">Search</a>
-    <a href="../get-user/Player">Player</a>
-    <a href="#" target="_blank"  onclick="redirectToDataUrl()">Data</a>
+    <header>
+        <h1>HTML Links</h1>
+        <nav>
+            <ul>
+                <li><a href="../get-user/Home">Home</a></li>
+                <li><a href="../get-user/Search">Search</a></li>
+                <li><a href="../get-user/Player">Player</a></li>
+                <li><a href="#" onclick="redirectToDataUrl(); return false;">Data</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section>
+            <h2>Video Player</h2>""" +  f"""
+            <div class="video-container">
+                <iframe width="640" height="360" src="{data}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
+     """ + """
     <script>
-    function redirectToDataUrl() {
-      // Get the current URL and append '/Data' to it
-      var dataUrl = window.location.href + "/Data";
+        function redirectToDataUrl() {
+            try {
+                // Get the current URL and append '/Data' to it
+                var dataUrl = window.location.href + "/Data";
 
-      // Redirect to the constructed URL
-      window.location.href = dataUrl;
-    }
-  </script>
-
-"""
-    player_html2 = f"""
-
-    <p>
-    <iframe width="640" height="360" src="{data}" frameborder="0" allowfullscreen></iframe>
-    </p>
-    <p>
-    <iframe width="640" height="360" src="{data}" frameborder="0" allowfullscreen></iframe>
-    </p>
+                // Redirect to the constructed URL
+                window.location.href = dataUrl;
+            } catch (error) {
+                console.error("Error redirecting to Data URL:", error.message);
+            }
+        }
+    </script>
 </body>
 </html>
+"""
+    return player_html
 
-    """
-    return player_html + player_html2
 
 def css_player_html(data):
 
@@ -966,8 +1037,7 @@ def get_user_player(user_id):
 
 ###############################################################################################################
 
-#if __name__ == "__main__":
-#    app.run(debug = True)
+
 
 ###############################################################################################################
 
