@@ -288,7 +288,7 @@ def content_html(data,episode_data):
 </header>
 
 <nav>
-    <h1>HTML Links</h1>
+    <h1>AnimeWeeb</h1>
     <a href="../Home">Home</a>
     <a href="../Search">Search</a>
     <a href="../Player">Player</a>
@@ -412,7 +412,7 @@ def search_html(data):
     </header>
 
     <nav>
-    <h1>HTML Links</h1>
+    <h1>AnimeWeeb</h1>
     <a href="../get-user/Home">Home</a>
     <a href="../get-user/Search">Search</a>
     <a href="../get-user/Player">Player</a>
@@ -522,7 +522,7 @@ def index_html(data):
     </header>
 
     <nav>
-    <h1>HTML Links</h1>
+    <h1>AnimeWeeb</h1>
     <a href="../get-user/Home">Home</a>
     <a href="../get-user/Search">Search</a>
     <a href="../get-user/Player">Player</a>
@@ -628,7 +628,7 @@ def player_html(data):
 </head>
 <body>
     <header>
-        <h1>HTML Links</h1>
+        <h1>AnimeWeeb</h1>
         <nav>
             <ul>
                 <li><a href="../get-user/Home">Home</a></li>
@@ -740,7 +740,7 @@ def css_player_html(data):
 </head>
 <body>
 
-    <h1>HTML Links</h1>
+    <h1>AnimeWeeb</h1>
 
     <!-- Navigation Bar -->
     <nav>
