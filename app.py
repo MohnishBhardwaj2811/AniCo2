@@ -79,7 +79,12 @@ def extract_Anime_Content(url):
 
         # Extract Plot Summary
         plot_summary = tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Plot Summary: ']/following-sibling::text()")[0].strip() if tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Plot Summary: ']/following-sibling::text()") else None
-
+        if plot_summary == None or plot_summary == "":
+            plot_summary = tree.xpath("//div[@class='description']/text()")[0].strip() if tree.xpath("//div[@class='description']/text()") else None
+            if plot_summary == None or plot_summary == "":
+                description = tree.xpath("//div[@class='description']/p/text()")
+                description_text = '\n'.join(description)
+                plot_summary = description_text
         # Extract Genre
         genre = tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Genre: ']/following-sibling::a/text()") if tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Genre: ']/following-sibling::a/text()") else None
 
@@ -91,7 +96,8 @@ def extract_Anime_Content(url):
 
         # Extract Other Name
         other_name = tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Other name: ']/following-sibling::text()")[0].strip() if tree.xpath("//div[@class='anime_info_body_bg']/p[@class='type']/span[text()='Other name: ']/following-sibling::text()") else None
-
+        if other_name =="" or other_name == None:
+            other_name = str(tree.xpath("//p[@class='type other-name']/a/text()"))
         Episode = tree.xpath("//div[@class='anime_video_body']//a[@class='active']/@ep_end")[0] if tree.xpath("//div[@class='anime_video_body']//a[@class='active']/@ep_end") else None
        
         img_src = tree.xpath("//div[@class='anime_info_body_bg']/img/@src")[0] if tree.xpath("//div[@class='anime_info_body_bg']/img/@src") else None
