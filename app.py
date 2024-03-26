@@ -895,7 +895,7 @@ def get_home():
     try:
         data = extract_Home(Urls.Home)
         #data = dict_content(data)
-        return data
+        return jsonify(data)
     except:
         return {"data" : "data not found" , "data_code": 404 }
 
@@ -910,7 +910,7 @@ def search():
             if data :
                 data = extract_Home(convert_search_url(data))
                 if data != {}:
-                    return data
+                    return jsonify(data)
                 else:
                     return f"For {data} nothing Found!"
             
@@ -930,7 +930,7 @@ def user_id_search(user_id):
     try:   
         data = extract_Home(convert_search_url(user_id))
         if data != {}:
-            return data
+            return jsonify(data)
         else:
             return f" For {user_id} Nothing Found!"
     except :
@@ -941,7 +941,7 @@ def user_id_search(user_id):
 def get_content(user_id):
     try:
         data = extract_Anime_Content(Urls.Suffix + "/category/" + user_id)
-        return data
+        return jsonify(data)
     except:
         return {"data" : "data not found" , "data_code": 404 }
         
@@ -951,7 +951,7 @@ def get_player(user_id):
     try:
         data = extract_embedded_Video(Urls.Suffix + "/" + user_id)
         print(data)
-        return data
+        return jsonify(data)
     except:
         return {"data" : "data not found" , "data_code": 404 }
 
