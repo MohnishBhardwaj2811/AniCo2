@@ -629,19 +629,11 @@ def player_html(data):
 <body>
     <header>
         <h1>AnimeWeeb</h1>
-        <nav>
-            <ul>
-                <li><a href="../get-user/Home">Home</a></li>
-                <li><a href="../get-user/Search">Search</a></li>
-                <li><a href="../get-user/Player">Player</a></li>
-                <li><a href="#" onclick="redirectToDataUrl(); return false;">Data</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
         <section>
-            <h2>Video Player</h2>""" +  f"""
+            """ +  f"""
             <div class="video-container">
                 <iframe width="640" height="360" src="{data}" frameborder="0" allowfullscreen></iframe>
             </div>
