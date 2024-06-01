@@ -1023,14 +1023,16 @@ def get_user_player(user_id):
             data = data["Video Player Link"]
             #return redirect(data)
             
-            return player_html(data)
+            #return player_html(data)
+            return f"""<p><a href="{data}">Visit W3Schools.com!</a></p> """
             #return css_player_html(data)
         else:
             data = extract_embedded_Video(convert_player_url(Urls.Suffix + "/" + user_id,1))
             data = data["Video Player Link"]
             #return redirect(data)
             
-            return player_html(data)
+            #return player_html(data)
+            return f"""<p><a href="{data}">Visit W3Schools.com!</a></p> """
             #return css_player_html(data)
     except:
         return Error_html()
