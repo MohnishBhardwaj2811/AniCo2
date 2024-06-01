@@ -1021,20 +1021,18 @@ def get_user_player(user_id):
         data = extract_embedded_Video(convert_player_url(Urls.Suffix + "/" + user_id,0))
         if data:
             data = data["Video Player Link"]
-            data1 = data["Download URL"]
             #return redirect(data)
             
             #return player_html(data)
-            return f"""<p><a href="{data}">Play!</a></p><p><a href="{data1}">Download!</a></p> """
+            return f"""<p><a href="{data}">Play!</a></p>"""
             #return css_player_html(data)
         else:
             data = extract_embedded_Video(convert_player_url(Urls.Suffix + "/" + user_id,1))
             data = data["Video Player Link"]
-            data1 = data["Download URL"]
             #return redirect(data)
             
             #return player_html(data)
-            return f"""<p><a href="{data}">Play!</a></p><p><a href="{data1}">Download!</a></p> """
+            return f"""<p><a href="{data}">Play!</a></p>"""
             #return css_player_html(data)
     except:
         return Error_html()
